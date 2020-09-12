@@ -15,7 +15,7 @@ Links:
 
 * [Message me anonymously](https://www.admonymous.co/brj)
 * [GitHub](https://github.com/iambrj)
-* [Blog](https://blog.bharathi.xyz/)
+* [Blog](https://blog.bharathi.xyz/posts)
 * [Resume](https://bharathi.xyz/bin/resume.pdf)
 * [Email](mailto:joshibharathiramana@gmail.com)
 

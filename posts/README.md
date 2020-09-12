@@ -1,5 +1,5 @@
 ---
-description: 'https://bharathi.xyz'
+description: All my blog posts are indexed below
 ---
 
 # Blog posts
