@@ -1,7 +1,7 @@
 # Table of contents
 
 * [brj's blog](README.md)
-* [brj's blog](posts/README.md)
+* [Blog posts](posts/README.md)
   * [ICFP'20](posts/icfp20.md)
   * [At-most countability of all regular languages](posts/atmostcountabilityofallregularlanguages.md)
   * [My pages from The Book](posts/my-pages-from-the-book.md)
