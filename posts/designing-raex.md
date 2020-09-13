@@ -50,7 +50,7 @@ notation: `--` means "corresponds to the state"
 
 If `R1 -- ({a1 : string, a2: real}, (all r1 in string x real | r1 in R1))`
 
-then `project [a2] R1 -- ({a2 : real}, (all r1 real | r1 in R1.a2))`
+then `project [a2] R1 -- ({a2 : real}, (all r in real | r in R1.a2))`
 
 * `select` will conjoin more predicates
 
