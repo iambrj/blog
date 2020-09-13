@@ -2,6 +2,7 @@
 
 * [brj's blog](README.md)
 * [Blog posts](posts/README.md)
+  * [Designing raex](posts/designing-raex.md)
   * [ICFP'20](posts/icfp20.md)
   * [At-most countability of all regular languages](posts/atmostcountabilityofallregularlanguages.md)
   * [My pages from The Book](posts/my-pages-from-the-book/README.md)
