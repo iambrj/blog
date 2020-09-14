@@ -85,6 +85,6 @@ then `R5 crss R6 -- ({a1 : real, a2 : string, a3 : string, a4 : real}, (all r in
 
 ### Things to think about
 
-* Is what I'm doing decidable? It is well known that first order logic is undecidable, and my predicate calculus for rows is first order complete
+* Is what I'm doing decidable? It is well known that first order logic is undecidable, and my predicate calculus for rows is first order complete?
 * What are my normal forms?
 
