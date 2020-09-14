@@ -48,38 +48,38 @@ notation: `--` means "corresponds to the state"
 
 * `project` will just delete some columns from the state
 
-If `R1 -- ({a1 : string, a2: real}, (all r1 in string x real | r1 in R1))`
+If `R1 -- ({a1 : string, a2: real}, (all r1 in string x real | r1.a1 in R1.a1 and r1.a2 in R1.a2))`
 
-then `project [a2] R1 -- ({a2 : real}, (all r in real | r in R1.a2))`
+then `project [a2] R1 -- ({a2 : real}, (all r in real | r.a2 in R1.a2))`
 
 * `select` will conjoin more predicates
 
-If `R2 -- ({a1 : real, a2 : string}, (all r2 in real x string | r2 in R2))`
+If `R2 -- ({a1 : real, a2 : string}, (all r2 in real x string | r2.a1 in R2.a2 and r2.a2 in R2.a2))`
 
-then `select [a1 > 0 /\ a2 = "foo"] -- ({a1 : real, a2 : string}, (all r2 in real x string | r2 in R2 and r2.a1 > 0 and r2.a2 = "foo"))`
+then `select [a1 > 0 /\ a2 = "foo"] -- ({a1 : real, a2 : string}, (all r2 in real x string | r2.a1 in R2.a1 and r2.a2 in R2.a2 and r2.a1 > 0 and r2.a2 = "foo"))`
 
 * `join` is the composition `select . project . crss` with appropriate parameters
 * `unin` requires types to match and works as follows
 
-If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3 in R3 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4 in R4 and r4.a1 < 0 and r4.a2 > 0))`
+If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3.a1 in R3.a1 and r3.a2 in R3.a3 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4.a1 in R4.a1 and r4.a2 in R4.a2 and r4.a1 < 0 and r4.a2 > 0))`
 
-then `R3 unin R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r in R3 and r.a1 > 0 and r.a2 < 0) or (r in R4 and r.a1 < 0 and r.a2 > 0)`
+then `R3 unin R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r.a1 in R3.a1 and r.a2 in R3.a2 and r.a1 > 0 and r.a2 < 0) or (r.a1 in R4.a1 and r.a2 in R.a2 and r.a1 < 0 and r.a2 > 0)`
 
 * `intr` also requires types to match and works as follows
 
-If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3 in R3 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4 in R4 and r4.a1 < 0 and r4.a2` What I can't figure out`> 0))`
+If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3.a1 in R3.a1 and r3.a2 in R3.a2 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4.a1 in R4.a1 and r4.a2 in R4.a4 and r4.a1 < 0 and r4.a2` What I can't figure out`> 0))`
 
-then `R3 unin R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r in R3 and r.a1 > 0 and r.a2 < 0) and (r in R4 and r.a1 < 0 and r.a2 > 0)` \(the empty set in this case\)
+then `R3 unin R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r3.a1 in R3.a1 and r3.a2 in R3.a2 and r.a1 > 0 and r.a2 < 0) and (r in R4 and r.a1 < 0 and r.a2 > 0)` \(the empty set in this case\)
 
 * `diff` also requires types to match and works as follows
 
-If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3 in R3 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4 in R4 and r4.a1 < 0 and r4.a2 > 0))`
+If `R3 -- ({a1 : real, a2 : real}, (all r3 in real x real | r3.a1 in R3.a1 and r3.a2 in R3.a2 and r3.a1 > 0 and r2.a2 < 0 ))` and `R4 -- ({a1 : real, a2 : real}, (all r4 in real x real | r4.a1 in R4.a1 and r4.a2 in R4.a2 and r4.a1 < 0 and r4.a2 > 0))`
 
-then `R3 diff R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r in R3 and r.a1 > 0 and r.a2 < 0) and !(r in R4 and r.a1 < 0 and r.a2 > 0)`
+then `R3 diff R4 -- ({a1 : real, a2 : real}, (all r in real x real | (r.a1 in R3.a1 and r.a2 in R3.a2 and r.a1 > 0 and r.a2 < 0) and !(r.a1 in R4.a1 and r.a2 in R4.a2 and r.a1 < 0 and r.a2 > 0)`
 
 * `crss` does not require anything about the types
 
-If `R5 -- ({a1 : real, a2 : string}, (all r5 in real x string | r5 in R5 and r5.a1 > 0 and r5.a2 > "foo" ))` and `R6 -- ({a3 : string, a4 : real}, (all r6 in string x real | r6 in R6 and r6.a3 < "bar" and r4.a2 > 5))`
+If `R5 -- ({a1 : real, a2 : string}, (all r5 in real x string | r5.a1 in R5.a1 and r5.a2 in R5.a2 and r5.a1 > 0 and r5.a2 > "foo" ))` and `R6 -- ({a3 : string, a4 : real}, (all r6 in string x real | r6.a3 in R6.a3 and r6.a4 in R6.a4 and r6.a3 < "bar" and r4.a2 > 5))`
 
 then `R5 crss R6 -- ({a1 : real, a2 : string, a3 : string, a4 : real}, (all r in real x string x string x real | (r.a1 in R5.a1 and r.a2 in R5.a2 and r.a1 > 0 and r.a2 > "foo") and (r.a3 in R6.a3 and r.a4 in R6.a4 and r.a3 < "bar" and r.a4 > 5)`
 
