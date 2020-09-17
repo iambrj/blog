@@ -2,6 +2,7 @@
 
 * [brj's blog](README.md)
 * [Blog posts](posts/README.md)
+  * [The many ways of characterizing fields](posts/the-many-ways-of-characterizing-fields.md)
   * [Designing raex](posts/designing-raex.md)
   * [ICFP'20](posts/icfp20.md)
   * [At-most countability of all regular languages](posts/atmostcountabilityofallregularlanguages.md)
