@@ -2,8 +2,6 @@
 
 * [brj's blog](README.md)
 * [Blog posts](posts/README.md)
-  * [PL kit](posts/pl-kit.md)
-  * [microKanren](posts/microkanren.md)
   * [The many ways of characterizing fields](posts/the-many-ways-of-characterizing-fields.md)
   * [Designing raex](posts/designing-raex.md)
   * [ICFP'20](posts/icfp20.md)
