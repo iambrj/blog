@@ -2,6 +2,8 @@
 
 ## Things I want to learn \(about\)
 
+Created: Jul 15, 2020 6:06 AM Tags: Live list
+
 If you happen to know any good resources on any of these, feel free to drop [me](mailto:joshibharathiramana@gmail.com) a mail.
 
 ## The Lambda Papers
@@ -40,8 +42,4 @@ If you happen to know any good resources on any of these, feel free to drop [me]
 ### Books
 
 * Term Rewriting and All That
-
-### TODO
-
-* ACL2 paper [https://www.cs.utexas.edu/users/moore/publications/how-to-prove-thms/main.pdf](https://www.cs.utexas.edu/users/moore/publications/how-to-prove-thms/main.pdf)
 
